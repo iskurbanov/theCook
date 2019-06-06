@@ -120,6 +120,9 @@ export default class Login extends Component {
                             />
                             </View>
                         </View>
+                        <Text style={{ position: "absolute", bottom: 160, fontSize: 10 }}>
+                            Your email will be used to send your selected recipes.
+                        </Text>
                         <TouchableOpacity
                             activeOpacity={0.7}
                             onPress={() => {
@@ -129,7 +132,7 @@ export default class Login extends Component {
                         <View
                             style={styles.button}>
                             <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
-                                Lets cook!
+                                Let's cook!
                             </Text>
                         </View>
                         </TouchableOpacity>
