@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, Keyboard, TouchableOpacity } from 'react-native';
 import LottieView from 'lottie-react-native';
-import Animation from 'lottie-react-native';
-const anim = require('../../assets/logo3.json');
 import config from "../config/index";
 
 

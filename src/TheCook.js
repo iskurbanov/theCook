@@ -8,15 +8,16 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 
 const MainStack = createSwitchNavigator({
+    main: { 
+        screen: NavBar 
+    },
     splash: {
         screen: SplashScreen
     },
     login: { 
         screen: Login 
     },
-    main: { 
-        screen: NavBar 
-    },
+    
     
 });
 

@@ -8,12 +8,10 @@ import { StyleSheet,
     Dimensions,
     TouchableWithoutFeedback,
     Keyboard,
-    Platform
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/Ionicons';
 import config from "../config/index";
-import { Row } from 'native-base';
 
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -128,12 +126,12 @@ export default class Login extends Component {
                                 this.login()
                             }}
                         >
-                            <View
-                                style={styles.button}>
-                                <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
-                                    Lets go!
-                                    </Text>
-                            </View>
+                        <View
+                            style={styles.button}>
+                            <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
+                                Lets cook!
+                            </Text>
+                        </View>
                         </TouchableOpacity>
                     </View>
                 </View>

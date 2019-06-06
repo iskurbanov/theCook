@@ -5,18 +5,28 @@ import {
     View, 
     Image, 
     Dimensions,
-    ScrollView
+    ScrollView,
+    TouchableOpacity
     } from 'react-native';
 import { PostFeed } from '../components/container';
 import FeaturedPost from '../components/presentation/FeaturedPost';
+import NewPosts from '../components/presentation/NewPosts';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 export default class HomeScreen extends React.Component {
 
 state = {
     screenWidth: Dimensions.get('window').width,
+    isTrending: true,
 }
 
+
+
   render() {
+    titleColor = () => {
+      this.state.isTrending ? "rgb(255,36,86)" : "rgba(0,0,0,0.20)"
+    }
 
     return (
       <View style={styles.container}>
@@ -26,10 +36,34 @@ state = {
             </Text>
         </View>
         <ScrollView>
-            <Text style={{ fontSize: 35, paddingBottom: 50, paddingTop: 30, alignSelf: 'center' }}>
-              Welcome, Christina!
+            <Text style={{ fontSize: 35, paddingBottom: 30, paddingTop: 30, alignSelf: 'center' }}>
+              Welcome Christina!
             </Text>
-            <FeaturedPost />
+            <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
+                    <TouchableOpacity
+                      onPress={() => {
+                                this.setState({ isTrending: true })
+                            }}>
+                      <Text style={[ this.state.isTrending? {color:"rgb(255,36,86)"}: {color:"rgba(0,0,0,0.20)"} ,{ marginLeft: 20, fontSize: 20, fontFamily: "Helvetica-Bold", marginBottom: 20 }]}>
+                          Trending
+                      </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => {
+                                this.setState({ isTrending: false })
+                            }}>
+                        <Text style={[ this.state.isTrending ? {color:"rgba(0,0,0,0.20)"}:{color:"rgb(255,36,86)"} ,{ marginLeft: 20, fontSize: 20, fontFamily: "Helvetica-Bold", marginBottom: 20 }]}> 
+                         New
+                      </Text>
+                    </TouchableOpacity>
+                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginBottom: 20, marginLeft: 100 }}>
+                        <Icon name='ios-pin' color="black" size={24} />
+                        <Text style={{ marginLeft: 5, fontSize: 15, color: "grey", fontFamily: "Helvetica-Bold"}}>
+                            Toronto
+                        </Text>
+                    </View>
+                </View>
+                {(this.state.isTrending) ? <FeaturedPost /> : <NewPosts />}
             <PostFeed />
         </ScrollView>
       </View>
@@ -50,7 +84,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center',
         paddingTop: 35,
-    }
+    },
   });
   
   
