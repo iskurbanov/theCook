@@ -8,20 +8,6 @@ export default class FeaturedPost extends Component {
     render() {
         return (
             <View>
-                {/* <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
-                    <Text style={{ marginLeft: 20, fontSize: 20, color: "rgb(255,36,86)", fontFamily: "Helvetica-Bold", marginBottom: 20 }}>
-                        Trending
-                    </Text>
-                    <Text style={{ marginLeft: 20, fontSize: 20, color: "rgba(0,0,0,0.20)", fontFamily: "Helvetica-Bold", marginBottom: 20 }}>
-                        New
-                    </Text>
-                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginBottom: 20, marginLeft: 100 }}>
-                        <Icon name='ios-pin' color="black" size={24} style={{ }} />
-                        <Text style={{ marginLeft: 5, fontSize: 15, color: "grey", fontFamily: "Helvetica-Bold"}}>
-                            Toronto
-                        </Text>
-                    </View>
-                </View> */}
                 <View style={{ marginBottom: 20 }}>
                     <ScrollView horizontal={true}>
                         <View>

@@ -26,7 +26,7 @@ export default class Login extends Component {
     state = {
         screenWidth: Dimensions.get('window').width,
         credentials: {
-            login: "",
+            name: "",
             email: "",
         },
     }
@@ -46,7 +46,6 @@ export default class Login extends Component {
 
     login() {
         //Send name and email to server
-        this.props.navigation.navigate('main');
         fetch(config.baseUrl, {
             method: 'POST',
             headers: {
@@ -57,8 +56,10 @@ export default class Login extends Component {
                 name: this.state.credentials.name,
                 email: this.state.credentials.email
             })
-
+            
         })
+        this.props.navigation.navigate('main', { name: this.state.credentials.name });
+
     }
 
     render() {
@@ -96,9 +97,6 @@ export default class Login extends Component {
                         <Text style={styles.signupTitle}>
                             Signup
                         </Text>
-                        <Text style={[styles.loginTitle]}>
-                            Login
-                        </Text>
                     </View>
                     <View style={{ alignItems: "center" }}>
                         <View style={ styles.loginBox }>
@@ -120,7 +118,7 @@ export default class Login extends Component {
                             />
                             </View>
                         </View>
-                        <Text style={{ position: "absolute", bottom: 160, fontSize: 10 }}>
+                        <Text style={{ position: "absolute", bottom: 155, fontSize: 12 }}>
                             Your email will be used to send your selected recipes.
                         </Text>
                         <TouchableOpacity

@@ -12,6 +12,7 @@ import { PostFeed } from '../components/container';
 import FeaturedPost from '../components/presentation/FeaturedPost';
 import NewPosts from '../components/presentation/NewPosts';
 import Icon from 'react-native-vector-icons/Ionicons';
+import config from "../config/index";
 
 
 export default class HomeScreen extends React.Component {
@@ -21,15 +22,14 @@ state = {
     isTrending: true,
 }
 
-
-
   render() {
-    titleColor = () => {
-      this.state.isTrending ? "rgb(255,36,86)" : "rgba(0,0,0,0.20)"
-    }
+
+    const { navigation } = this.props;
+    const userName = navigation.getParam('name', 'No-name')
 
     return (
-      <View style={styles.container}>
+        
+      <View style={styles.container}> 
         <View style={styles.tempNav}>
             <Text>
                 theCook
@@ -37,7 +37,7 @@ state = {
         </View>
         <ScrollView>
             <Text style={{ fontSize: 35, paddingBottom: 30, paddingTop: 30, alignSelf: 'center' }}>
-              Welcome Christina!
+              Welcome {userName}
             </Text>
             <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
                     <TouchableOpacity

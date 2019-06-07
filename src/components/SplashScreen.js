@@ -20,12 +20,19 @@ export default class Login extends Component {
                     style={{ 
                         height: 100 + "%",
                         width: 100 + "%", flex: 1,
-                        // justifyContent: "center",
                         alignItems: "center",
-                        marginBottom: 250,
+                        marginBottom: 200,
                         justifyContent: "flex-end"
                         }}
                         >
+                    <View style={{ flexDirection: "row", position: "absolute", top: 80, left: 100 }}>
+                        <Text style={{ fontFamily: "Helvetica", fontSize: 40, color: "rgb(255,36,86)" }}>
+                            the
+                        </Text>
+                        <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 40, color: "rgb(255,36,86)" }}>
+                            Cook.
+                        </Text>
+                    </View>
                     <LottieView source={require('../../assets/animation.json')} autoPlay loop />
                     <TouchableOpacity
                     activeOpacity={0.7}
