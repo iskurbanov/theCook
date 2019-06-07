@@ -58,7 +58,7 @@ export default class Login extends Component {
             })
             
         })
-        this.props.navigation.navigate('main', { name: this.state.credentials.name });
+        this.props.navigation.navigate('Home', { name: this.state.credentials.name });
 
     }
 

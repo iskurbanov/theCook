@@ -24,8 +24,9 @@ state = {
 
   render() {
 
-    const { navigation } = this.props;
-    const userName = navigation.getParam('name', 'No-name')
+    let { navigation } = this.props;
+    let name = navigation.getParam('name')
+    alert(name)
 
     return (
         
@@ -37,7 +38,7 @@ state = {
         </View>
         <ScrollView>
             <Text style={{ fontSize: 35, paddingBottom: 30, paddingTop: 30, alignSelf: 'center' }}>
-              Welcome {userName}
+              Welcome {name}
             </Text>
             <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
                     <TouchableOpacity
