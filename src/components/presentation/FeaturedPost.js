@@ -12,7 +12,7 @@ export default class FeaturedPost extends Component {
                     <ScrollView horizontal={true}>
                         <View>
                             <ImageOverlay 
-                                containerStyle={{ width: 330, height: 200, marginRight: 20, marginLeft: 20, borderRadius: 7 }}
+                                containerStyle={{ width: 300, height: 180, marginRight: 20, marginLeft: 20, borderRadius: 7 }}
                                 height={200}
                                 overlayAlpha={0.1}
                                 rounded={7}
@@ -29,9 +29,9 @@ export default class FeaturedPost extends Component {
                         </View>
                         <View>
                             <ImageOverlay 
-                                containerStyle={{ width: 330, height: 200, marginRight: 20, borderRadius: 7 }}
+                                containerStyle={{ width: 300, height: 180, marginRight: 20, borderRadius: 7 }}
                                 height={200}
-                                overlayAlpha={0.05}
+                                overlayAlpha={0.1}
                                 rounded={7}
                                 source={{
                                 uri: "https://www.acleanplate.com/wp-content/uploads/2012/08/Asparagus-and-Mushroom-Saute-Recipe.jpg"
@@ -46,7 +46,7 @@ export default class FeaturedPost extends Component {
                         </View>
                         <View>
                             <ImageOverlay 
-                                containerStyle={{ width: 330, height: 200, marginRight: 20, borderRadius: 7 }}
+                                containerStyle={{ width: 300, height: 180, marginRight: 20, borderRadius: 7 }}
                                 height={200}
                                 overlayAlpha={0.05}
                                 rounded={7}

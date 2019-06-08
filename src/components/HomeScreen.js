@@ -26,19 +26,18 @@ state = {
 
     let { navigation } = this.props;
     let name = navigation.getParam('name')
-    alert(name)
 
     return (
         
       <View style={styles.container}> 
         <View style={styles.tempNav}>
-            <Text>
+            <Text style={{ fontFamily: "HelveticaNeue-Italic", fontSize: 16 }}>
                 theCook
             </Text>
         </View>
         <ScrollView>
             <Text style={{ fontSize: 35, paddingBottom: 30, paddingTop: 30, alignSelf: 'center' }}>
-              Welcome {name}
+              Welcome, {name}!
             </Text>
             <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
                     <TouchableOpacity

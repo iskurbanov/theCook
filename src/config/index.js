@@ -12,5 +12,5 @@ export default {
     styleConstants: {
         rowHeight: 50
     },
-    baseUrl: 'http://localhost:8080/users',
+    baseUrl: "http://22d4c7be.ngrok.io/users" || 'http://localhost:8080/users',
 };
