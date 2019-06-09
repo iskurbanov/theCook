@@ -3,21 +3,34 @@ import { View, StyleSheet } from 'react-native';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import SplashScreen from './components/SplashScreen';
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { FluidNavigator } from 'react-navigation-fluid-transitions';
 
 
 
-const MainStack = createSwitchNavigator({
+// const MainStack = createSwitchNavigator({
     
+//     splash: {
+//         screen: SplashScreen
+//     },
+//     login: { 
+//         screen: Login 
+//     },
+//     main: { 
+//         screen: NavBar 
+//     },
+// });
+const MainStack = FluidNavigator({
+    main: { 
+        screen: NavBar 
+    },
     splash: {
         screen: SplashScreen
     },
     login: { 
         screen: Login 
     },
-    main: { 
-        screen: NavBar 
-    },
+    
 });
 
 const AppContainer = createAppContainer(MainStack); 

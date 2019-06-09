@@ -2,6 +2,8 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import Post from '../presentation/Post';
 import FeaturedPost from '../presentation/FeaturedPost';
+import feedData from "../../data/feedData";
+
 
 export default class PostFeed extends React.Component {
 

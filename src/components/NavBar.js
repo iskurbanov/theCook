@@ -52,7 +52,6 @@ export default createMaterialBottomTabNavigator({
   }
 },{
   initialRouteName: 'Home',
-  // order: ['Settings', 'Home'],
   activeTintColor: 'white',
   shifting: true
 })

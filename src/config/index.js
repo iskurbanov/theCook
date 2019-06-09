@@ -1,13 +1,13 @@
 export default {
     images: {
-        heartIcon: require('../../assets/heart-filledin.png'),
-        arrowIcon: require('../../assets/arrow.png'),
-        bubbleIcon: require('../../assets/bubble.png'),
-        fruits: require("../../assets/fruits.png"),
-        logo: require("../../assets/logo-flat2.png"),
-        animated: require("../../assets/Path_ready.png"),
-        avocado: require("../../assets/avocado.png"),
-        meal: require("../../assets/meal.png"),
+        heartIcon: require('../../assets/logos/heart-filledin.png'),
+        arrowIcon: require('../../assets/logos/arrow.png'),
+        bubbleIcon: require('../../assets/logos/bubble.png'),
+        fruits: require("../../assets/logos/fruits.png"),
+        logo: require("../../assets/logos/logo-flat2.png"),
+        animated: require("../../assets/logos/Path_ready.png"),
+        avocado: require("../../assets/logos/avocado.png"),
+        meal: require("../../assets/logos/meal.png"),
     },
     styleConstants: {
         rowHeight: 50

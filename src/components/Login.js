@@ -12,6 +12,8 @@ import { StyleSheet,
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/Ionicons';
 import config from "../config/index";
+import { Transition } from 'react-navigation-fluid-transitions';
+
 
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -91,17 +93,22 @@ export default class Login extends Component {
                         <Icon name='ios-arrow-back' color="black" size={35} />
                     </View>
                 </TouchableOpacity>
-                <Image source={ config.images.avocado } style={{ position: "absolute", top: 60, right: -80, width: 300, height: 220 }} />
+                <Transition appear="scale" disappear="top">
+                    <Image source={ config.images.avocado } style={{ position: "absolute", top: 60, right: -80, width: 300, height: 220 }} />
+                </Transition>
                 <View style={{ alignItems: "center", }}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", position: "relative", top: -130, width: 300, marginRight: 20  }}>
+                        <Transition appear="right" delay>
                         <Text style={styles.signupTitle}>
                             Signup
                         </Text>
+                        </Transition>
                     </View>
-                    <View style={{ alignItems: "center" }}>
-                        <View style={ styles.loginBox }>
+                    <View style={{ alignItems: "center", justifyContent: "center" }}>
+                            <View style={ styles.loginBox }>
                             <View>
                             <TextInput
+                                selectionColor="rgb(255,36,86)"
                                 autoCorrect={false}
                                 placeholder="Name"
                                 style={styles.input}
@@ -110,6 +117,7 @@ export default class Login extends Component {
                             </View>
                             <View>
                             <TextInput
+                                selectionColor="rgb(255,36,86)"
                                 keyboardType="email-address"
                                 autoCorrect={false}
                                 placeholder="E-mail"
@@ -117,23 +125,27 @@ export default class Login extends Component {
                                 onChangeText={text => this.updateText(text, 'email')}
                             />
                             </View>
-                        </View>
+                            </View>
                         <Text style={{ position: "absolute", bottom: 155, fontSize: 12 }}>
                             Your email will be used to send your selected recipes.
                         </Text>
+                        
                         <TouchableOpacity
                             activeOpacity={0.7}
                             onPress={() => {
                                 this.login()
                             }}
                         >
+                        <Transition shared='button' disappear="scale" delay>
                         <View
                             style={styles.button}>
                             <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
                                 Let's cook!
                             </Text>
                         </View>
+                        </Transition>
                         </TouchableOpacity>
+                        
                     </View>
                 </View>
             </View>
@@ -164,6 +176,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         position: "relative", 
         top: -120,
+        alignSelf: "flex-end",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,

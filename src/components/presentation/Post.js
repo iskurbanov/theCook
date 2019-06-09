@@ -11,11 +11,12 @@ import { Image } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
+
 export default class Post extends React.Component {
 
 state = {
     screenWidth: Dimensions.get('window').width,
-    liked: false
+    liked: false,
 }
 
 likeToggled(){
@@ -62,18 +63,9 @@ likeToggled(){
                     />
         </TouchableOpacity>
         <View style={ styles.iconBar }>
-            {/* <Image style={[ styles.icon, { height: 40, width: 40, tintColor: heartIconColor } ]} source={ config.images.heartIcon } />
-            <Image style={[ styles.icon, { height: 36, width: 36 } ]} source={ config.images.bubbleIcon } /> */}
-            {/* <Image style={[ styles.icon, { height: 40, width: 40 } ]} source={ config.images.arrowIcon } /> */}
             <Icon name='ios-heart' color="black" size={35} style={[ styles.icon, { color: heartIconColor } ]}/>
             <Icon name='ios-add' color="black" size={40} style={ styles.icon } />
         </View>
-        {/* <View style={ styles.iconBar }>
-            <Image style={[ styles.icon, { height: 30, width: 30 } ]} source={ config.images.heartIcon } />
-            <Text>
-                128 likes
-            </Text>
-        </View> */}
       </View>
     );
   }

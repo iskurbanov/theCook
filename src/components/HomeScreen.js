@@ -13,6 +13,7 @@ import FeaturedPost from '../components/presentation/FeaturedPost';
 import NewPosts from '../components/presentation/NewPosts';
 import Icon from 'react-native-vector-icons/Ionicons';
 import config from "../config/index";
+import { Transition } from 'react-navigation-fluid-transitions';
 
 
 export default class HomeScreen extends React.Component {
@@ -31,9 +32,14 @@ state = {
         
       <View style={styles.container}> 
         <View style={styles.tempNav}>
-            <Text style={{ fontFamily: "HelveticaNeue-Italic", fontSize: 16 }}>
-                theCook
-            </Text>
+            <View style={{ flexDirection: "row" }}>
+                <Text style={{ fontFamily: "Helvetica", fontSize: 16, color: "rgb(255,36,86)" }}>
+                    the
+                </Text>
+                <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 16, color: "rgb(255,36,86)" }}>
+                    Cook.
+                </Text>
+            </View>
         </View>
         <ScrollView>
             <Text style={{ fontSize: 35, paddingBottom: 30, paddingTop: 30, alignSelf: 'center' }}>
@@ -56,7 +62,7 @@ state = {
                          New
                       </Text>
                     </TouchableOpacity>
-                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginBottom: 20, marginLeft: 100 }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginBottom: 20, marginLeft: 150 }}>
                         <Icon name='ios-pin' color="black" size={24} />
                         <Text style={{ marginLeft: 5, fontSize: 15, color: "grey", fontFamily: "Helvetica-Bold"}}>
                             Toronto
@@ -64,7 +70,7 @@ state = {
                     </View>
                 </View>
                 {(this.state.isTrending) ? <FeaturedPost /> : <NewPosts />}
-            <PostFeed />
+              <PostFeed />
         </ScrollView>
       </View>
     );
