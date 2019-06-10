@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, Button } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import ImageOverlay from "react-native-image-overlay";
 
 
@@ -24,9 +24,15 @@ export default class FeaturedPost extends Component {
                                     <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 25, color: "white" }}>
                                         {title}
                                     </Text>
-                                    <Button style={{ width: 50, height: 20, backgroundColor: "red" }} title="View" onPress={() => {
-                                            
-                                        }} />
+                                    <TouchableOpacity
+                                        style={ styles.button }
+                                        onPress={() => {
+
+                                            }}>
+                                        <Text style={{ fontFamily: "Helvetica-Bold", color: 'white', fontSize: 20 }}> 
+                                            View
+                                        </Text>
+                                    </TouchableOpacity>
                                 </View>
                             </ImageOverlay>
                         </View>
@@ -36,3 +42,19 @@ export default class FeaturedPost extends Component {
         )
     }
 }
+
+
+const styles = StyleSheet.create({
+    button: {
+        justifyContent: 'center', 
+        alignItems: "center", 
+        width: 100, 
+        height: 50, 
+        backgroundColor: "rgba(0,0,0,0.10)", 
+        borderWidth: 2,
+        borderColor: 'white',
+        borderRadius: 10,
+        margin: 10,
+        marginLeft: 80
+    }
+})

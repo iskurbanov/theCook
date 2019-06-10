@@ -22,11 +22,11 @@ export default class Login extends Component {
                         height: 100 + "%",
                         width: 100 + "%", flex: 1,
                         alignItems: "center",
-                        marginBottom: 200,
+                        marginBottom: 250,
                         justifyContent: "flex-end"
-                        }}
-                >
-                    <View style={{ flexDirection: "row", position: "absolute", top: 80, left: 100 }}>
+                        }}>   
+                    <Transition appear="top" disappear="top" delay>
+                    <View style={{ flexDirection: "row", position: "absolute", top: 80, left: 120 }}>
                         <Text style={{ fontFamily: "Helvetica", fontSize: 40, color: "rgb(255,36,86)" }}>
                             the
                         </Text>
@@ -34,33 +34,33 @@ export default class Login extends Component {
                             Cook.
                         </Text>
                     </View>
+                    </Transition>
                     <Transition appear="scale" disappear="top">
-                    <View
-                    style={{ 
-                        // height: 100 + "%",
-                        width: 100 + "%", 
-                        flex: 1,
-                        // alignItems: "center",
-                        marginTop: 100,
-                        // justifyContent: "flex-end"
-                        }}>
-                    <LottieView source={require('../../assets/logos/animation.json')} autoPlay loop />
-                    </View>
+                        <View
+                        style={{ 
+                            // height: 100 + "%",
+                            width: 100 + "%", 
+                            flex: 1,
+                            // alignItems: "center",
+                            marginTop: 80,
+                            // justifyContent: "flex-end"
+                            }}>
+                            <LottieView source={require('../../assets/logos/animation.json')} autoPlay loop />
+                        </View>
                     </Transition>
                     <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={()=> {
                                     this.EnterApp()
-                                }}  
-                    >
-                    <Transition shared='button'>
-                    <View
-                    style={styles.button}>
-                        <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
-                            Enter
-                        </Text>
-                    </View>
-                    </Transition>
+                                }}>
+                        <Transition shared='button'>
+                            <View
+                            style={styles.button}>
+                                <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
+                                    Enter
+                                </Text>
+                            </View>
+                        </Transition>
                     </TouchableOpacity>
                     
                 </View>

@@ -6,24 +6,35 @@ import {
     Image, 
     Dimensions,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    Animated
     } from 'react-native';
 import { PostFeed } from '../components/container';
 import FeaturedPost from '../components/presentation/FeaturedPost';
 import NewPosts from '../components/presentation/NewPosts';
 import Icon from 'react-native-vector-icons/Ionicons';
-import config from "../config/index";
-import { Transition } from 'react-navigation-fluid-transitions';
+import Stories from 'react-insta-stories'
 
+
+
+HEADER_MAX_HEIGHT = 120
+HEADER_MIN_HEIGHT = 75
 
 export default class HomeScreen extends React.Component {
 
 state = {
     screenWidth: Dimensions.get('window').width,
     isTrending: true,
+    scrollY: new Animated.Value(0),
 }
 
   render() {
+
+    const headerHeight = this.state.scrollY.interpolate({
+        inputRange: [0, HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT],
+        outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
+        extrapolate: 'clamp'
+    })
 
     let { navigation } = this.props;
     let name = navigation.getParam('name')
@@ -31,19 +42,26 @@ state = {
     return (
         
       <View style={styles.container}> 
-        <View style={styles.tempNav}>
+         <Animated.View style={[ styles.tempNav, {height: headerHeight} ]}>
             <View style={{ flexDirection: "row" }}>
-                <Text style={{ fontFamily: "Helvetica", fontSize: 16, color: "rgb(255,36,86)" }}>
+                <Text style={{ fontFamily: "Helvetica", fontSize: 20, color: "rgb(255,36,86)" }}>
                     the
                 </Text>
-                <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 16, color: "rgb(255,36,86)" }}>
+                <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 20, color: "rgb(255,36,86)" }}>
                     Cook.
                 </Text>
             </View>
-        </View>
-        <ScrollView>
+
+            
+        </Animated.View>
+            
+        <ScrollView style={{ flex: 1, paddingTop: 100 }} 
+                    scrollEventThrottle={16}
+                    onScroll = {Animated.event(
+                        [{ nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
+                    )}>
             <Text style={{ fontSize: 35, paddingBottom: 30, paddingTop: 30, alignSelf: 'center' }}>
-              Welcome, {name}!
+                Welcome, {name}!
             </Text>
             <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }}>
                     <TouchableOpacity
@@ -69,7 +87,7 @@ state = {
                         </Text>
                     </View>
                 </View>
-                {(this.state.isTrending) ? <FeaturedPost /> : <NewPosts />}
+                {(this.state.isTrending) ? <NewPosts /> : <FeaturedPost /> }
               <PostFeed />
         </ScrollView>
       </View>
@@ -83,13 +101,18 @@ const styles = StyleSheet.create({
     },
     tempNav: {
         width: 100 +"%",
-        height: 75,
+        // height: 75,
         backgroundColor: "rgb(250, 250, 250)",
         borderBottomColor: 'rgb(233,233,233)',
         borderBottomWidth: StyleSheet.hairlineWidth,
         justifyContent: "center",
         alignItems: 'center',
         paddingTop: 35,
+        zIndex: 1, 
+        position: "absolute", 
+        top: 0, 
+        left: 0, 
+        right: 0, 
     },
   });
   
