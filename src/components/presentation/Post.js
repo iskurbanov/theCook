@@ -9,6 +9,7 @@ import {
 import config from '../../config/index';
 import { Image } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Item } from 'native-base';
 
 
 
@@ -35,11 +36,10 @@ likeToggled(){
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Image 
                     style={styles.userPic}
-                    source={{ uri: "https://www.acleanplate.com/wp-content/uploads/2018/01/Christina-Feindel-2018.jpg" 
-                    }} />
+                    source={this.props.avatar} />
                 <View>
                     <Text>
-                        Christina
+                        {this.props.name}
                     </Text>
                 </View>
             </View>
@@ -57,14 +57,23 @@ likeToggled(){
         <Image 
         PlaceholderContent={<ActivityIndicator />}
         style={{ width: this.state.screenWidth, height: 300 }}
-        source={{
-                    uri: "https://www.acleanplate.com/wp-content/uploads/2012/05/Savory-Baked-Salmon-Recipe-1.jpg"
-                    }}
+        source={ this.props.image }
                     />
         </TouchableOpacity>
         <View style={ styles.iconBar }>
-            <Icon name='ios-heart' color="black" size={35} style={[ styles.icon, { color: heartIconColor } ]}/>
+            <TouchableOpacity 
+                activeOpacity={0.8}
+                onPress={()=>{
+                    this.likeToggled()
+            }}>
+                <Icon name='ios-heart' color="black" size={35} style={[ styles.icon, { color: heartIconColor } ]}/>
+            </TouchableOpacity>
             <Icon name='ios-add' color="black" size={40} style={ styles.icon } />
+        </View>
+        <View>
+            <Text style={{ padding: 10, fontFamily: "Helvetica", fontSize: 16 }}>
+                {this.props.description}
+            </Text>
         </View>
       </View>
     );

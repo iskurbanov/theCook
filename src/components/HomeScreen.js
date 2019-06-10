@@ -13,7 +13,6 @@ import { PostFeed } from '../components/container';
 import FeaturedPost from '../components/presentation/FeaturedPost';
 import NewPosts from '../components/presentation/NewPosts';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Stories from 'react-insta-stories'
 
 
 
@@ -42,6 +41,7 @@ state = {
     return (
         
       <View style={styles.container}> 
+
          <Animated.View style={[ styles.tempNav, {height: headerHeight} ]}>
             <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontFamily: "Helvetica", fontSize: 20, color: "rgb(255,36,86)" }}>
@@ -94,6 +94,35 @@ state = {
     );
   }
 }
+
+const stories = [
+    {
+      id: "4",
+      source: require("../images/Greek-Salad.jpg"),
+      user: "Ugur Erdal",
+      avatar: require("../images/Greek-Salad.jpg")
+    },
+    // {
+    //   id: "2",
+    //   source: require("../../../assets/stories/2.jpg"),
+    //   user: "Mustafa",
+    //   avatar: require("../../../assets/avatars/mustafa.png")
+    // },
+    // {
+    //   id: "5",
+    //   source: require("../../../assets/stories/5.jpg"),
+    //   user: "Emre Yilmaz",
+    //   avatar: require("../../../assets/avatars/emre.png")
+    // },
+    // {
+    //   id: "3",
+    //   source: require("../../../assets/stories/3.jpg"),
+    //   user: "Cenk Gun",
+    //   avatar: require("../../../assets/avatars/cenk.png")
+    // },
+  ];
+  
+
 
 const styles = StyleSheet.create({
     container: {

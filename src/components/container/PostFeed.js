@@ -8,7 +8,7 @@ import feedData from "../../data/feedData";
 export default class PostFeed extends React.Component {
 
     __renderPost({ item }) {
-        return <Post />
+        return <Post name={item.name} image={item.image} description={item.description} avatar={item.avatar} />
     }
 
     __returnKey(item) {
@@ -18,8 +18,8 @@ export default class PostFeed extends React.Component {
     render() {
         return (
             <FlatList
-                data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
-                keyExtractor={this.__returnKey}
+                data={feedData}
+                keyExtractor={ item => item.id }
                 renderItem={this.__renderPost}
             />
         )
