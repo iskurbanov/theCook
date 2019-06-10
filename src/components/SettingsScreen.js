@@ -10,6 +10,10 @@ import {
     TouchableOpacity,
     Animated
     } from 'react-native';
+import { Transition } from 'react-navigation-fluid-transitions';
+import LottieView from 'lottie-react-native';
+
+
 
 HEADER_MAX_HEIGHT = 120
 HEADER_MIN_HEIGHT = 75
@@ -17,7 +21,6 @@ export default class SettingsScreen extends React.Component {
 
     state = {
         screenWidth: Dimensions.get('window').width,
-        isTrending: true,
         scrollY: new Animated.Value(0),
     }
 
@@ -51,16 +54,27 @@ export default class SettingsScreen extends React.Component {
                 </Text>
             </View>
         </Animated.View>
-      
+        <View style={{ flexDirection: "row", position: "absolute", top: 200, left: 140 }}>
+            <Text style={{ fontFamily: "Helvetica", fontSize: 40, color: "rgb(255,36,86)" }}>
+                log
+            </Text>
+            <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 40, color: "rgb(255,36,86)" }}>
+                Out.
+            </Text>
+        </View>
         <TouchableOpacity
-        style={{ marginTop: 200 }}
+        style={{ flex: 1, marginTop: 150, width: 80 + "%" }}
         onPress={()=> {
                         this.LogOut()
-                    }}  
-        >
-          <Text>
-            LogOut
-          </Text>
+                    }}>
+                        <View
+                        style={{ 
+                            // height: 100 + "%",
+                            width: 100 + "%", 
+                            flex: 1,
+                            }}>
+                            <LottieView source={require('../../assets/logos/print.json')} autoPlay loop={false} />
+                        </View>
         </TouchableOpacity>
       </View>
     );

@@ -1,20 +1,49 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
+import { View, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Post from '../presentation/Post';
 import DiscoverData from '../../data/DiscoveryData';
+import { withNavigation } from 'react-navigation';
+import DiscoveryImage from './DiscoveryImage';
 
 
 
+// function DiscoveryImage(item) {
+//     return (
+//             <View>
+//            <TouchableOpacity
+//                 style={ styles.button }
+//                 onPress={() => {
+//                         this.props.navigation.navigate('details', 
+//                         {
+//                             title: this.props.title, 
+//                             image: this.props.image, 
+//                             description: this.props.description,
+//                             instructions: this.props.instructions
+//                         });
+//                     }}>
+//                <Image source={item.image} style={{ width: 135, height: 135, margin: 2 }} />
+//             </TouchableOpacity>
+//            </View>
+//     )
+//   }
 
 
 
-export default class DiscoverFeed extends React.Component {
+class DiscoverFeed extends React.Component {
+
+    gotoDetails() {
+        this.props.navigation.navigate('details', 
+            {
+                title: this.props.title, 
+                image: this.props.image, 
+                description: this.props.description,
+                instructions: this.props.instructions
+            });
+    }
 
    renderItem = ({ item, index }) => {
        return (
-           <View>
-               <Image source={item.image} style={{ width: 135, height: 135 }} />
-           </View>
+           <DiscoveryImage image={item.image} title={item.title} key={item.id} description={item.description} instructions={item.instructions}/>
        )
    }
 
@@ -32,26 +61,11 @@ export default class DiscoverFeed extends React.Component {
     }
 }
 
+export default withNavigation(DiscoverFeed, DiscoveryImage);
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
 })
-
- // state = {
-    //     loading: false,
-    //     data: [],
-    //     page: 1,
-    //     seed: 1,
-    //     error: null,
-    //     refreshing: false
-    // }
-
-    // componentDidMount() {
-    //     this.makeRemoteRequest();
-    // }
-
-    // makeRemoteRequest = () => {
-    //     const { page, seed } = this.state;
-    //     const url = 
-    // }

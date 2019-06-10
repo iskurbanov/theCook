@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
+import DetailedView from './components/presentation/DetailedView';
 import SplashScreen from './components/SplashScreen';
 import { createAppContainer } from 'react-navigation';
 import { FluidNavigator } from 'react-navigation-fluid-transitions';
@@ -23,6 +24,9 @@ import { FluidNavigator } from 'react-navigation-fluid-transitions';
 const MainStack = FluidNavigator({
     main: { 
         screen: NavBar 
+    },
+    details: {
+        screen: DetailedView
     },
     splash: {
         screen: SplashScreen

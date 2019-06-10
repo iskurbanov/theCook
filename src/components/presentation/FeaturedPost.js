@@ -15,7 +15,7 @@ export default class FeaturedPost extends Component {
                 <ScrollView horizontal={true}>
                 {
                     feedData.map(post => (
-                        <FeaturedPostData title={post.title} key={post.id} image={post.image} />
+                        <FeaturedPostData title={post.title} key={post.id} image={post.image} description={post.description} instructions={post.instructions} />
                     ))
                 }
                 </ScrollView>

@@ -38,12 +38,9 @@ export default class Login extends Component {
                     <Transition appear="scale" disappear="top">
                         <View
                         style={{ 
-                            // height: 100 + "%",
                             width: 100 + "%", 
                             flex: 1,
-                            // alignItems: "center",
                             marginTop: 80,
-                            // justifyContent: "flex-end"
                             }}>
                             <LottieView source={require('../../assets/logos/animation.json')} autoPlay loop />
                         </View>

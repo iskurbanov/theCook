@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import ImageOverlay from "react-native-image-overlay";
+import { withNavigation } from 'react-navigation';
 
 
-export default class FeaturedPost extends Component {
+class FeaturedPostData extends Component {
+
+    gotoDetails() {
+        this.props.navigation.navigate('details', 
+            {
+                title: this.props.title, 
+                image: this.props.image, 
+                description: this.props.description,
+                instructions: this.props.instructions
+            });
+    }
+
     render() {
 
         const { title, image } = this.props 
@@ -27,7 +39,7 @@ export default class FeaturedPost extends Component {
                                     <TouchableOpacity
                                         style={ styles.button }
                                         onPress={() => {
-
+                                                this.gotoDetails()
                                             }}>
                                         <Text style={{ fontFamily: "Helvetica-Bold", color: 'white', fontSize: 20 }}> 
                                             View
@@ -42,6 +54,8 @@ export default class FeaturedPost extends Component {
         )
     }
 }
+
+export default withNavigation(FeaturedPostData)
 
 
 const styles = StyleSheet.create({

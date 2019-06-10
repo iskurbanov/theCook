@@ -71,7 +71,7 @@ likeToggled(){
             <Icon name='ios-add' color="black" size={40} style={ styles.icon } />
         </View>
         <View>
-            <Text style={{ padding: 10, fontFamily: "Helvetica", fontSize: 16 }}>
+            <Text style={{ padding: 10, fontFamily: "Helvetica", fontSize: 16, marginBottom: 20 }}>
                 {this.props.description}
             </Text>
         </View>

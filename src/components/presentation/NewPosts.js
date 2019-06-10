@@ -14,7 +14,7 @@ export default class NewPosts extends Component {
                 <ScrollView horizontal={true}>
                 {
                     feedDataNew.map(post => (
-                        <NewPostData title={post.title} key={post.id} image={post.image} />
+                        <NewPostData title={post.title} key={post.id} image={post.image} description={post.description} instructions={post.instructions} />
                     ))
                 }
                 </ScrollView>

@@ -6,22 +6,31 @@ import {
     Image, 
     Dimensions,
     ScrollView,
-    TouchableOpacity,
-    Animated
+    FlatList,
+    Animated,
+    TouchableOpacity
     } from 'react-native';
-
+import CartData from '../data/CartData';
 
 
 
 HEADER_MAX_HEIGHT = 120
 HEADER_MIN_HEIGHT = 75
 
-export default class HomeScreen extends React.Component {
+export default class CartScreen extends React.Component {
 
 state = {
     screenWidth: Dimensions.get('window').width,
     isTrending: true,
     scrollY: new Animated.Value(0),
+}
+
+renderItem = ({ item, index }) => {
+    return (
+        <View>
+            <Image source={item.image} style={{ width: 225, height: 135, margin: 10 }} />
+        </View>
+    )
 }
 
   render() {
@@ -34,6 +43,7 @@ state = {
 
     let { navigation } = this.props;
     let name = navigation.getParam('name')
+
 
     return (
         
@@ -48,7 +58,32 @@ state = {
                 </Text>
             </View>
         </Animated.View>
-            
+        
+        <ScrollView>
+            <View style={{ paddingTop: 150 }}>
+                <FlatList
+                    data={CartData}
+                    style={styles.container}
+                    renderItem={this.renderItem}
+                    contentContainerStyle={{ margin: 10 }}
+                    keyExtractor={item => item.id}
+                />
+            </View>
+            <View style={{ alignItems: "center", marginTop: 50 }}>
+            <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => {
+                    this.login()
+                }}>
+                <View
+                    style={styles.button}>
+                    <Text style={{ color: "white", fontSize: 25, fontFamily: "Helvetica-Bold" }}>
+                        Checkout
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            </View>
+        </ScrollView>
       </View>
     );
   }
@@ -56,7 +91,7 @@ state = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     tempNav: {
         width: 100 +"%",
@@ -72,6 +107,23 @@ const styles = StyleSheet.create({
         left: 0, 
         right: 0, 
     },
+    button: {
+        width: 250,
+        height: 60,
+        backgroundColor: "rgb(255,36,86)",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 30,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 11,
+        },
+        shadowOpacity: 0.40,
+        shadowRadius: 15,
+
+        elevation: 10,
+    }
   });
   
   
