@@ -77,12 +77,12 @@ renderItem = ({ item, index }) => {
         </Animated.View>
         
         <ScrollView>
-            <View style={{ paddingTop: 150 }}>
+            <View style={{ paddingTop: 150, alignItems: 'center' }}>
                 <FlatList
                     data={CartData}
                     style={styles.container}
                     renderItem={this.renderItem}
-                    contentContainerStyle={{ margin: 10 }}
+                    contentContainerStyle={{ }}
                     keyExtractor={item => item.id}
                 />
             </View>
@@ -144,9 +144,9 @@ const styles = StyleSheet.create({
         elevation: 10,
     },
     cartImages: { 
-        width: 375, 
+        width: 100 + "%", 
         height: 120, 
-        margin: 10 
+        marginBottom: 15
     }
   });
   

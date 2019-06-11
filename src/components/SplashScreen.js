@@ -26,7 +26,7 @@ export default class Login extends Component {
                         justifyContent: "flex-end"
                         }}>   
                     <Transition appear="top" disappear="top" delay>
-                    <View style={{ flexDirection: "row", position: "absolute", top: 80, left: 120 }}>
+                    <View style={{ flexDirection: "row", position: "absolute", top: 80, justifyContent: 'center' }}>
                         <Text style={{ fontFamily: "Helvetica", fontSize: 40, color: "rgb(255,36,86)" }}>
                             the
                         </Text>

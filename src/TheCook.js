@@ -32,7 +32,12 @@ import { FluidNavigator } from 'react-navigation-fluid-transitions';
 //     },
 // });
 const MainStack = FluidNavigator({
-    
+    splash: {
+        screen: SplashScreen
+    },
+    login: { 
+        screen: Login 
+    },
     main: { 
         screen: NavBar 
     },
@@ -45,12 +50,7 @@ const MainStack = FluidNavigator({
     settings: {
         screen: SettingsScreen
     },
-    splash: {
-        screen: SplashScreen
-    },
-    login: { 
-        screen: Login 
-    },
+    
 },
 {transitionConfig});
 

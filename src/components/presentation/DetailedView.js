@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, Image, ActivityIndicator, TouchableOpacity } from 'react-native'
+import { Text , ScrollView , ActivityIndicator, TouchableOpacity } from 'react-native'
 import { Transition } from 'react-navigation-fluid-transitions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { withNavigation } from 'react-navigation';
+import { View, Image } from 'react-native-animatable';
+
 
 
 
@@ -17,7 +19,7 @@ class DetailedView extends Component {
         let instructions = navigation.getParam('instructions')
 
         return ( 
-            <View style={{ height: 100 + "%" }}>
+            <View animation="bounceInUp" delay={500}  style={{ height: 100 + "%" }}>
                 <TouchableOpacity
                             activeOpacity={0.7}
                             onPress={() => {

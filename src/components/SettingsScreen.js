@@ -54,7 +54,7 @@ export default class SettingsScreen extends React.Component {
                 </Text>
             </View>
         </Animated.View>
-        <View style={{ flexDirection: "row", position: "absolute", top: 200, left: 140 }}>
+        <View style={{ flexDirection: "row",justifyContent: "center", position: "absolute", top: 200}}>
             <Text style={{ fontFamily: "Helvetica", fontSize: 40, color: "rgb(255,36,86)" }}>
                 log
             </Text>

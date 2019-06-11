@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import ImageOverlay from "react-native-image-overlay";
 import { withNavigation } from 'react-navigation';
 import { Transition } from 'react-navigation-fluid-transitions';
+import { createAnimatableComponent, View, Image } from 'react-native-animatable';
+
 
 
 
@@ -29,7 +31,6 @@ class NewPostData extends Component {
                 <View style={{ marginBottom: 20 }}>
                     <ScrollView horizontal={true}>
                         <View>
-                        <Transition shared={image}>
                             <ImageOverlay 
                                 containerStyle={{ width: 300, height: 180, marginRight: 10, marginLeft: 20, borderRadius: 7 }}
                                 contentPosition={"center"}
@@ -52,7 +53,6 @@ class NewPostData extends Component {
                                     </TouchableOpacity>
                                 </View>
                             </ImageOverlay>
-                        </Transition>
                         </View>
                     </ScrollView>
                 </View>

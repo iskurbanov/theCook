@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import Post from '../presentation/Post';
 import DiscoverData from '../../data/DiscoveryData';
 import { withNavigation } from 'react-navigation';
 import { Transition } from 'react-navigation-fluid-transitions';
+import { createAnimatableComponent, View, Image } from 'react-native-animatable';
+
 
 
 
@@ -24,9 +26,7 @@ class DiscoveryImage extends React.Component {
                             instructions: this.props.instructions
                         });
                     }}>
-                    <Transition shared={image}>
-               <Image source={image} style={{ width: 135, height: 135, margin: 2 }} />
-               </Transition>
+               <Image animation="bounceInDown" useNativeDriver={true} source={image} style={{ width: 135, height: 135, margin: 2 }} />
             </TouchableOpacity>
            </View>
     )
