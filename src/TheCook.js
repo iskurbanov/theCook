@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Animated, Easing } from 'react-native';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import DetailedView from './components/presentation/DetailedView';
 import SplashScreen from './components/SplashScreen';
-import { createAppContainer } from 'react-navigation';
+import SettingsScreen from './components/SettingsScreen';
+import CartDetails from './components/presentation/CartDetails';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { FluidNavigator } from 'react-navigation-fluid-transitions';
 
 
 
 // const MainStack = createSwitchNavigator({
-    
 //     splash: {
 //         screen: SplashScreen
 //     },
@@ -20,13 +21,29 @@ import { FluidNavigator } from 'react-navigation-fluid-transitions';
 //     main: { 
 //         screen: NavBar 
 //     },
+//     details: {
+//         screen: DetailedView
+//     },
+//     cartDetails: {
+//         screen: CartDetails
+//     },
+//     settings: {
+//         screen: SettingsScreen
+//     },
 // });
 const MainStack = FluidNavigator({
+    
     main: { 
         screen: NavBar 
     },
     details: {
         screen: DetailedView
+    },
+    cartDetails: {
+        screen: CartDetails
+    },
+    settings: {
+        screen: SettingsScreen
     },
     splash: {
         screen: SplashScreen
@@ -34,8 +51,15 @@ const MainStack = FluidNavigator({
     login: { 
         screen: Login 
     },
-    
-});
+},
+{transitionConfig});
+
+const transitionConfig = {
+    duration: 2000,
+    timing: Animated.timing,
+    easing: Easing.easing
+  };
+  
 
 const AppContainer = createAppContainer(MainStack); 
  

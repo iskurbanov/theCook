@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderRadius: 10,
         margin: 10,
-        marginLeft: 80
+        marginLeft: 70
     }
 })

@@ -43,6 +43,7 @@ class DiscoverFeed extends React.Component {
 
    renderItem = ({ item, index }) => {
        return (
+        
            <DiscoveryImage image={item.image} title={item.title} key={item.id} description={item.description} instructions={item.instructions}/>
        )
    }

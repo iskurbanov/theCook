@@ -38,7 +38,7 @@ likeToggled(){
                     style={styles.userPic}
                     source={this.props.avatar} />
                 <View>
-                    <Text>
+                    <Text style={{ fontSize: 16 }}>
                         {this.props.name}
                     </Text>
                 </View>

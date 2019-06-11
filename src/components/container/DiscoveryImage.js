@@ -3,14 +3,17 @@ import { View, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-nativ
 import Post from '../presentation/Post';
 import DiscoverData from '../../data/DiscoveryData';
 import { withNavigation } from 'react-navigation';
+import { Transition } from 'react-navigation-fluid-transitions';
+
 
 
 
 class DiscoveryImage extends React.Component {
     render() {
+        const { image } = this.props
     return (
             <View>
-           <TouchableOpacity
+            <TouchableOpacity
                 style={ styles.button }
                 onPress={() => {
                         this.props.navigation.navigate('details', 
@@ -21,7 +24,9 @@ class DiscoveryImage extends React.Component {
                             instructions: this.props.instructions
                         });
                     }}>
-               <Image source={this.props.image} style={{ width: 135, height: 135, margin: 2 }} />
+                    <Transition shared={image}>
+               <Image source={image} style={{ width: 135, height: 135, margin: 2 }} />
+               </Transition>
             </TouchableOpacity>
            </View>
     )

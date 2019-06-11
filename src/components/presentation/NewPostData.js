@@ -7,6 +7,7 @@ import { Transition } from 'react-navigation-fluid-transitions';
 
 
 
+
 class NewPostData extends Component {
 
     gotoDetails() {
@@ -28,6 +29,7 @@ class NewPostData extends Component {
                 <View style={{ marginBottom: 20 }}>
                     <ScrollView horizontal={true}>
                         <View>
+                        <Transition shared={image}>
                             <ImageOverlay 
                                 containerStyle={{ width: 300, height: 180, marginRight: 10, marginLeft: 20, borderRadius: 7 }}
                                 contentPosition={"center"}
@@ -50,6 +52,7 @@ class NewPostData extends Component {
                                     </TouchableOpacity>
                                 </View>
                             </ImageOverlay>
+                        </Transition>
                         </View>
                     </ScrollView>
                 </View>
@@ -71,6 +74,6 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderRadius: 10,
         margin: 10,
-        marginLeft: 60
+        marginLeft: 50
     }
 })

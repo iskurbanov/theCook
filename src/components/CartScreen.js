@@ -11,13 +11,17 @@ import {
     TouchableOpacity
     } from 'react-native';
 import CartData from '../data/CartData';
+import { withNavigation } from 'react-navigation';
+import ImageOverlay from "react-native-image-overlay";
+import { Transition } from 'react-navigation-fluid-transitions';
+
 
 
 
 HEADER_MAX_HEIGHT = 120
 HEADER_MIN_HEIGHT = 75
 
-export default class CartScreen extends React.Component {
+class CartScreen extends React.Component {
 
 state = {
     screenWidth: Dimensions.get('window').width,
@@ -28,7 +32,23 @@ state = {
 renderItem = ({ item, index }) => {
     return (
         <View>
-            <Image source={item.image} style={{ width: 225, height: 135, margin: 10 }} />
+            <TouchableOpacity
+                onPress={() => {
+                    this.props.navigation.navigate("cartDetails", {
+                        title: item.title, 
+                        image: item.image, 
+                        description: item.description,
+                        instructions: item.instructions
+                    }) }} >
+            <ImageOverlay 
+                source={item.image} 
+                containerStyle={styles.cartImages}
+                overlayAlpha={0.2}>
+                <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 25, color: "white" }}>
+                    {item.title}
+                </Text>
+            </ImageOverlay>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -41,14 +61,11 @@ renderItem = ({ item, index }) => {
         extrapolate: 'clamp'
     })
 
-    let { navigation } = this.props;
-    let name = navigation.getParam('name')
-
 
     return (
         
       <View style={styles.container}> 
-         <Animated.View style={[ styles.tempNav, {height: headerHeight} ]}>
+         <Animated.View style={[ styles.tempNav, { height: headerHeight } ]}>
             <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontFamily: "Helvetica", fontSize: 20, color: "rgb(255,36,86)" }}>
                     the
@@ -73,7 +90,7 @@ renderItem = ({ item, index }) => {
             <TouchableOpacity
                 activeOpacity={0.7}
                 onPress={() => {
-                    this.login()
+                    this.props.navigation.navigate("settings");
                 }}>
                 <View
                     style={styles.button}>
@@ -88,6 +105,8 @@ renderItem = ({ item, index }) => {
     );
   }
 }
+
+export default withNavigation(CartScreen);
 
 const styles = StyleSheet.create({
     container: {
@@ -123,6 +142,11 @@ const styles = StyleSheet.create({
         shadowRadius: 15,
 
         elevation: 10,
+    },
+    cartImages: { 
+        width: 375, 
+        height: 120, 
+        margin: 10 
     }
   });
   
